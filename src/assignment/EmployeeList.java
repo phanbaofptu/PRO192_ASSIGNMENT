@@ -55,7 +55,14 @@ public class EmployeeList extends ArrayList<Employee>{
         
         newProductivityScore = Inputter.inputDouble("Productivity Score (0.8-1.2): ",0.8,1.2);
 
-        Employee emp = new Employee(newCode, newAccount, newRole, newWorkStartingDate, newProductivityScore);
+        Employee emp = null;
+        if (newRole.equalsIgnoreCase("MANAGEMENT")) {
+            emp = new Management(newCode, newAccount, newRole, newWorkStartingDate, newProductivityScore, newProductivityScore, newProductivityScore);
+        } else if (newRole.equalsIgnoreCase("LEADER")) {
+            emp = new Leader(newCode, newAccount, newRole, newWorkStartingDate, newProductivityScore, newProductivityScore, newProductivityScore);
+        } else {
+            emp = new Dev(newCode, newAccount, newRole, newWorkStartingDate, newProductivityScore, newProductivityScore, newProductivityScore);
+        }
         this.add(emp);
         System.out.println("Employee " + newCode + " has been added");
     }
