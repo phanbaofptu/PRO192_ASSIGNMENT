@@ -1,0 +1,31 @@
+package manageremployee;
+public class ManagerEmployee {
+    public static void main(String[] args) {
+        String [] options = {"Add new employee","Search a employee", "Update the information of employee", "Remove a employee", "List ascending by MonthlyIncome and descending by Account", "List ascending by Empld", "Quit"};
+        int choice = 0 ;
+        EmployeeList list = new EmployeeList();
+        do{
+        System.out.println("Employee managing Program");
+        choice = Menu.getChoice(options);
+        switch(choice){
+            case 1: list.addEmployee();
+               break;
+            case 2: list.searchEmployee();
+               break;
+            case 3: list.updateEmployee();
+               break;
+            case 4: list.removeEmployee();
+               break;
+            case 5: list.printAll1();
+               break;
+            case 6: list.printAll2();
+               break;
+            default: System.out.println("Good bye!!!");
+                }
+        }
+        while (choice > 0 && choice < 7);
+    }
+    
+}
+    
+
