@@ -16,9 +16,9 @@ public class ManagerEmployee {
                break;
             case 4: list.removeEmployee();
                break;
-            case 5: list.printAll1();
+            case 5: Collections.sort(list, new MonthAccountComperator());
                break;
-            case 6: list.printAll2();
+            case 6: Collections.sort(list, new RoleEmpldComperator());
                break;
             default: System.out.println("Good bye!!!");
                 }
