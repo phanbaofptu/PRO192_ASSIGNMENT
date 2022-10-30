@@ -1,4 +1,4 @@
-package DTO;
+package assignment;
 
 import java.util.Comparator;
 import managerstudent.Student;
