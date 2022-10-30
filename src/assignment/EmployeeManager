@@ -1,7 +1,15 @@
 package manageremployee;
 public class ManagerEmployee {
     public static void main(String[] args) {
-        String [] options = {"Add new employee","Search a employee", "Update the information of employee", "Remove a employee", "List ascending by MonthlyIncome and descending by Account", "List ascending by Empld", "Quit"};
+        String [] options = {
+        "Add new employee",
+        "Search a employee", 
+        "Update the information of employee", 
+        "Remove a employee", 
+        "Sort ascending by MonthlyIncome and descending by Account", 
+        "Sort ascending by Empld and Role", 
+        "Display" , 
+        "Quit"};
         int choice = 0 ;
         EmployeeList list = new EmployeeList();
         do{
@@ -20,10 +28,12 @@ public class ManagerEmployee {
                break;
             case 6: Collections.sort(list, new RoleEmpldComperator());
                break;
+            case 7: list.printAll();
+               break;
             default: System.out.println("Good bye!!!");
                 }
         }
-        while (choice > 0 && choice < 7);
+        while (choice > 0 && choice < 8);
     }
     
 }
