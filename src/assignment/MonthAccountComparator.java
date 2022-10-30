@@ -3,7 +3,7 @@ package assignment;
 import java.util.Comparator;
 import manageremployee.Employee;
 
-public class CodeNameComparator implements Comparator<Employee>{
+public class MonthAccountComparator implements Comparator<Employee>{
     @Override
     public int compare(Employee o1, Employee o2) {
         int result = Comparator.comparing((Employee e) -> e.getMonthlyIncome())
