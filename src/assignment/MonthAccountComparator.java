@@ -1,5 +1,4 @@
-
-package DTO;
+package assignment;
 
 import java.util.Comparator;
 import manageremployee.Employee;
