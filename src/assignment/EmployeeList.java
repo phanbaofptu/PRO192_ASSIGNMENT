@@ -1,16 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package assignment;
-
 import java.util.ArrayList;
 import java.util.Date;
-
-/**
- *
- * @author phangiabao
- */
 public class EmployeeList extends ArrayList<Employee>{
     public EmployeeList() {
         super();
@@ -24,6 +14,20 @@ public class EmployeeList extends ArrayList<Employee>{
             }
         }
         return null;
+    }
+    
+    public void searchEmployee() {
+        if (this.isEmpty()) {
+            System.out.println("Empty list. No search can be performed!");
+        } else {
+            String sCode = Inputter.inputStr("Input Employee ID for search: ");
+            Employee emp = this.search(sCode);
+            if (emp == null) {
+                System.out.println("Employee " + sCode + " doesn't existed!");
+            } else {
+                System.out.println("Found: " + emp);
+            }
+        }
     }
 
     private boolean isCodeDuplicated(String code) {
@@ -65,20 +69,6 @@ public class EmployeeList extends ArrayList<Employee>{
         }
         this.add(emp);
         System.out.println("Employee " + newCode + " has been added");
-    }
-
-    public void searchEmployee() {
-        if (this.isEmpty()) {
-            System.out.println("Empty list. No search can be performed!");
-        } else {
-            String sCode = Inputter.inputStr("Input Employee ID for search: ");
-            Employee emp = this.search(sCode);
-            if (emp == null) {
-                System.out.println("Employee " + sCode + " doesn't existed!");
-            } else {
-                System.out.println("Found: " + emp);
-            }
-        }
     }
 
     public void updateEmployee() {
