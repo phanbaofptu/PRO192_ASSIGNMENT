@@ -100,4 +100,11 @@ public abstract class Employee {
 
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" + "empId=" + empId + ", account=" + account + ", role=" + role + ", workStartingDate=" + workStartingDate + ", productivityScore=" + productivityScore + ", monthlyIncome=" + monthlyIncome + ", rewardSalary=" + rewardSalary + '}';
+    }
+    
+    
+
 }

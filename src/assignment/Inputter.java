@@ -3,6 +3,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Inputter {
 
@@ -45,23 +47,29 @@ public class Inputter {
         } while (!data.matches(pattern));
         return data;
     }
-
+    private static boolean checkDate(String s){
+        try {
+            Date tmp = new SimpleDateFormat("dd/MM/yyyy").parse(s);
+            return tmp.before(new Date());
+        } catch (ParseException ex) {
+           
+        }
+        return false;
+    }
     public static Date inputDate(String msg) {
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        Date date1 = null;
-        Date date2 = new Date();
-        df.format(date1);
-        df.format(date2);
+        String data = null;
         do {
-
-            df.setLenient(false);
-            try {
-                System.out.println(msg);
-                date1 = df.parse(sc.nextLine());
-            } catch (ParseException e) {
-                System.out.println("Invalid date");
-            }
-        } while (date1.before(date2));
-        return date1;
+            System.out.println(msg);
+            data = sc.nextLine();
+            
+        } while(!checkDate(data));
+        
+        Date tmp = null;
+        try {
+            tmp = new SimpleDateFormat("dd/MM/yyyy").parse(data);
+        } catch (ParseException ex) {
+            Logger.getLogger(Inputter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+return tmp;
     }
 }

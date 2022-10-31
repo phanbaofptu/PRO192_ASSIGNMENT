@@ -42,7 +42,7 @@ public class EmployeeList extends ArrayList<Employee>{
         boolean codeDuplicated = false;
 
         do {
-            newCode = Inputter.inputPatern("Employee ID MNVxxx: ", "[sS][\\d]{3}");
+            newCode = Inputter.inputPatern("Employee ID MNVxxx: ", "[Mm][Nn][Vv][\\d]{3}");
             newCode = newCode.trim().toUpperCase();
             codeDuplicated = isCodeDuplicated(newCode);
             if (codeDuplicated) {
