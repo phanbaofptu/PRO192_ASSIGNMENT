@@ -14,9 +14,9 @@ import java.util.Date;
  */
 public abstract class Employee {
 
-    String empId = "";
-    String account = "";
-    String role = "";
+    String empId;
+    String account;
+    String role;
     Date workStartingDate;
     double productivityScore;
     double monthlyIncome;
@@ -99,6 +99,7 @@ public abstract class Employee {
         return productivityScore * 3000000;
 
     }
+    public abstract double calAllowance();
 
     @Override
     public String toString() {

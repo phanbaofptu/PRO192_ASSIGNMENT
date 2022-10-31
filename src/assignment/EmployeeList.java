@@ -1,4 +1,6 @@
 package assignment;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 public class EmployeeList extends ArrayList<Employee>{
@@ -38,6 +40,7 @@ public class EmployeeList extends ArrayList<Employee>{
     public void addEmployee() {
         String newCode, newAccount, newRole;
         double newProductivityScore;
+        int newResolveIssueNumber,newOtherTaskNumber, newReviewTaskNumber, newSupportTaskNumber, newDoneTaskNumber;
         Date newWorkStartingDate;
         boolean codeDuplicated = false;
 
@@ -59,13 +62,18 @@ public class EmployeeList extends ArrayList<Employee>{
         
         newProductivityScore = Inputter.inputDouble("Productivity Score (0.8-1.2): ",0.8,1.2);
 
-        Employee emp;
+        Employee emp = null;
         if (newRole.equalsIgnoreCase("MANAGEMENT")) {
-            emp = new Management(newCode, newAccount, newRole, newWorkStartingDate, newProductivityScore, newProductivityScore, newProductivityScore);
+            newResolveIssueNumber = Inputter.inputInt("Resolve Issue Number: " );
+            newOtherTaskNumber = Inputter.inputInt("Other Task Number: ");
+            emp = new Management(newCode, newAccount, newWorkStartingDate, newProductivityScore, newResolveIssueNumber, newOtherTaskNumber);
         } else if (newRole.equalsIgnoreCase("LEADER")) {
-            emp = new Leader(newCode, newAccount, newRole, newWorkStartingDate, newProductivityScore, newProductivityScore, newProductivityScore);
-        } else {
-            emp = new Dev(newCode, newAccount, newRole, newWorkStartingDate, newProductivityScore, newProductivityScore, newProductivityScore);
+            newReviewTaskNumber = Inputter.inputInt("Review Task Number: " );
+            newSupportTaskNumber = Inputter.inputInt("Support Task Number: ");
+            emp = new Leader(newCode, newAccount, newWorkStartingDate, newProductivityScore, newReviewTaskNumber, newSupportTaskNumber);
+        } else if(newRole.equalsIgnoreCase("DEV")){
+            newDoneTaskNumber = Inputter.inputInt("Done Task Number: " );
+            emp = new Dev(newCode, newAccount, newWorkStartingDate, newProductivityScore, newDoneTaskNumber, newProductivityScore);
         }
         this.add(emp);
         System.out.println("Employee " + newCode + " has been added");

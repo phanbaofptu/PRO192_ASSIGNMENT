@@ -23,6 +23,11 @@ public class Inputter {
         } while (data < min || data > max);
         return data;
     }
+        public static int inputInt(String msg) {
+        System.out.println(msg);
+        int data = Integer.parseInt(sc.nextLine());
+        return data;
+    }
 
     public static String inputStr(String msg) {
         System.out.println(msg);

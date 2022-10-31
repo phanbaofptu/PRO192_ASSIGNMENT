@@ -4,17 +4,19 @@
  */
 package assignment;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  *
  * @author phangiabao
  */
-public class Dev extends Employee{
+public class Dev extends Employee {
+
     int doneTaskNumber;
 
-    public Dev(String empId, String account, String role, Date workStartingDate, double productivityScore, double monthlyIncome, double rewardSalary) {
-        super(empId, account, role, workStartingDate, productivityScore);
+    public Dev(String empId, String account, Date workStartingDate, double productivityScore, double monthlyIncome, double rewardSalary) {
+        super(empId, account, "DEV", workStartingDate, productivityScore);
     }
 
     public int getDoneTaskNumber() {
@@ -25,68 +27,21 @@ public class Dev extends Employee{
         this.doneTaskNumber = doneTaskNumber;
     }
 
-    public String getEmpId() {
-        return empId;
-    }
-
-    public void setEmpId(String empId) {
-        this.empId = empId;
-    }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(String account) {
-        this.account = account;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public Date getWorkStartingDate() {
-        return workStartingDate;
-    }
-
-    public void setWorkStartingDate(Date workStartingDate) {
-        this.workStartingDate = workStartingDate;
-    }
-
-    public double getProductivityScore() {
-        return productivityScore;
-    }
-
-    public void setProductivityScore(double productivityScore) {
-        this.productivityScore = productivityScore;
-    }
-
-    public double getMonthlyIncome() {
-        return monthlyIncome;
-    }
-
-    public void setMonthlyIncome(double monthlyIncome) {
-        this.monthlyIncome = monthlyIncome;
-    }
-
-    public double getRewardSalary() {
-        return rewardSalary;
-    }
-
-    public void setRewardSalary(double rewardSalary) {
-        this.rewardSalary = rewardSalary;
-    }
-    
-    
-
     @Override
     public double calMonthlyIncome() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        calReward();
+        setMonthlyIncome((double)(getDoneTaskNumber() * 1500000) + getRewardSalary());
+        return this.getMonthlyIncome();
     }
-    
-    
+    @Override
+	public double calAllowance() {
+		return 0;
+	}
+
+    @Override
+	public String toString() {
+		return getRole() + "," + getEmpId() + "," + getAccount() + "," + new SimpleDateFormat("dd/MM/yyyy").format(getWorkStartingDate()) + "," + 
+				getProductivityScore() + "," + getDoneTaskNumber();
+	}
+        
 }
