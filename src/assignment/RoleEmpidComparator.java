@@ -1,7 +1,7 @@
 package assignment;
 
 import java.util.Comparator;
-import manageremployee.Employee;
+import assignment.Employee;
 
 public class RoleEmpidComparator implements Comparator<Employee>{
     @Override

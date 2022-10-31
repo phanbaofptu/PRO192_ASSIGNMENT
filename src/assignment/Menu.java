@@ -1,4 +1,4 @@
-package GUI;
+package assignment;
 
 import java.util.ArrayList;
 import java.util.ArrayList;
@@ -7,9 +7,6 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public static void main(String[] args) {
-
-    }
 
     public static int getChoice(Object[] options) {
         for (int i = 0; i < options.length; i++) {

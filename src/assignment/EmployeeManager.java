@@ -1,11 +1,16 @@
-package manageremployee;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package assignment;
 
-import DTO.EmployeeList;
-import DTO.MonthAccountComparator;
-import DTO.RoleEmpidComparator;
 import java.util.Collections;
 
-public class ManagerEmployee {
+/**
+ *
+ * @author phangiabao
+ */
+public class EmployeeManager {
     public static void main(String[] args) {
         String [] options = {
         "Add new employee",
@@ -43,5 +48,3 @@ public class ManagerEmployee {
     }
     
 }
-    
-

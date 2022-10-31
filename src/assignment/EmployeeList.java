@@ -42,7 +42,7 @@ public class EmployeeList extends ArrayList<Employee>{
         boolean codeDuplicated = false;
 
         do {
-            newCode = Inputter.inputPatern("Employee ID MNVxxx: ", "[sMNV][\\d]{3}");
+            newCode = Inputter.inputPatern("Employee ID MNVxxx: ", "[sS][\\d]{3}");
             newCode = newCode.trim().toUpperCase();
             codeDuplicated = isCodeDuplicated(newCode);
             if (codeDuplicated) {
@@ -59,7 +59,7 @@ public class EmployeeList extends ArrayList<Employee>{
         
         newProductivityScore = Inputter.inputDouble("Productivity Score (0.8-1.2): ",0.8,1.2);
 
-        Employee emp = null;
+        Employee emp;
         if (newRole.equalsIgnoreCase("MANAGEMENT")) {
             emp = new Management(newCode, newAccount, newRole, newWorkStartingDate, newProductivityScore, newProductivityScore, newProductivityScore);
         } else if (newRole.equalsIgnoreCase("LEADER")) {
@@ -111,7 +111,7 @@ public class EmployeeList extends ArrayList<Employee>{
 
     }
 
-    public void removeStudent() {
+    public void removeEmployee() {
         if (this.isEmpty()) {
             System.out.println("Empty list. No remove can be performed!");
         } else {
