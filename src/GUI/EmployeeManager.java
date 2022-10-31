@@ -7,7 +7,7 @@ package GUI;
 import GUI.EmployeeList;
 import DTO.Menu;
 import tool.MonthAccountComparator;
-import DTO.RoleEmpidComparator;
+import tool.RoleEmpidComparator;
 import java.util.Collections;
 
 /**

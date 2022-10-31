@@ -115,18 +115,18 @@ public class EmployeeList extends ArrayList<Employee> {
 
                 String oldRole = emp.getRole();
                 String msg2 = "Old Role: " + oldRole + " ,New Role: ";
-                upRole = Inputter.inputNonBlankStr(msg);
+                upRole = Inputter.inputNonBlankStr(msg2);
                 emp.setRole(upRole);
                 upRole = upRole.toUpperCase();
 
                 double oldProductivityScore = emp.getProductivityScore();
                 String msg3 = "Old ProductivityScore: " + oldProductivityScore + " ,New ProductivityScore: ";
-                upProductivityScore = Inputter.inputDouble(msg, 0.8, 1.2);
+                upProductivityScore = Inputter.inputDouble(msg3, 0.8, 1.2);
                 emp.setProductivityScore(upProductivityScore);
 
                 Date oldWorkStartingDate = emp.getWorkStartingDate();
                 String msg4 = "Old Work Starting Date: " + oldWorkStartingDate + " ,New WorkStartingDate: ";
-                upWorkStartingDate = Inputter.inputDate(msg);
+                upWorkStartingDate = Inputter.inputDate(msg4);
                 emp.setWorkStartingDate(upWorkStartingDate);
 
                 System.out.println("Employee " + uCode + " has been updated!");
