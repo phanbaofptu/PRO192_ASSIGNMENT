@@ -161,8 +161,8 @@ public class EmployeeManager {
 
             @Override
             public int compare(Object o1, Object o2) {
-                Double x1 = ((Employee) o1).getMonthlyIncome();
-                Double x2 = ((Employee) o2).getMonthlyIncome();
+                Long x1 = ((Employee) o1).getMonthlyIncome();
+                Long x2 = ((Employee) o2).getMonthlyIncome();
                 int sComp = x1.compareTo(x2);
 
                 if (sComp != 0) {

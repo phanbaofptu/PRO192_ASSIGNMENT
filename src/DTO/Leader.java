@@ -12,19 +12,19 @@ public class Leader extends Employee {
 	private double allowance;
 
 	@Override
-	public double calMonthlyIncome() {
-		return (this.reviewTaskNumber * 4000000) + (this.supportTaskNumber * 400000) + this.getRewardSalary()
-				+ this.getAllowance();
+	public long calMonthlyIncome() {
+		return (long) ((this.reviewTaskNumber * 4000000) + (this.supportTaskNumber * 400000) + this.getRewardSalary()
+				+ this.getAllowance());
 	}
 
-	public double calAllowance() {
+	public long calAllowance() {
 
 		Date currentDate = new Date();
 		int numberMonthWork = (int) ((currentDate.getTime() - this.getWorkStartingDate().getTime()) / 3600);
 		if (numberMonthWork >= 36) {
-			return this.getProductivityScore() * 2000000;
+			return (long) this.getProductivityScore() * 2000000;
 		} else {
-			return this.getProductivityScore() * 1200000;
+			return (long) this.getProductivityScore() * 1200000;
 		}
 	}
 	

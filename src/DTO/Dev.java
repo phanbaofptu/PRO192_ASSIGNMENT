@@ -8,8 +8,8 @@ public class Dev extends Employee {
 	private int doneTaskNumber;
 
 	@Override
-	public double calMonthlyIncome() {
-		return this.doneTaskNumber * 1500000 + this.getRewardSalary();
+	public long calMonthlyIncome() {
+		return (long) (this.doneTaskNumber * 1500000 + this.getRewardSalary());
 	}
 
 	public Dev() {

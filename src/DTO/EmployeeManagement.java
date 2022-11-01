@@ -19,6 +19,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -44,6 +46,8 @@ public class EmployeeManagement extends javax.swing.JFrame {
             };
             model.addRow(dong);
         }
+        //TableModel DefaultTableModel = null;
+        //TableRowSorter myTableRowSorter = new TableRowSorter(DefaultTableModel);
     }
 
     /**
@@ -170,10 +174,17 @@ public class EmployeeManagement extends javax.swing.JFrame {
                 dtm.addRow(new String[]{ emp.getEmpId(), emp.getAccount(), emp.getRole() + "", new SimpleDateFormat("dd/MM/yyyy").format(emp.getWorkStartingDate()), emp.getProductivityScore() + "", emp.calMonthlyIncome() +"", emp.calReward() + "" });
             }
         }
-
         
+        //TableRowSorter myTableRowSorter = new TableRowSorter(empTable);        
     }//GEN-LAST:event_btnFileActionPerformed
 
+    
+    
+    
+    
+    
+    
+    
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed

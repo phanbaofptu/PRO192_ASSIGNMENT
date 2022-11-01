@@ -13,8 +13,8 @@ public abstract class Employee {
 	private String account;
 	private Date workStartingDate;
 	private double productivityScore;
-	private double monthlyIncome;
-	private double rewardSalary;
+	private long monthlyIncome;
+	private long rewardSalary;
 
 	public Employee() {
 		super();
@@ -69,11 +69,11 @@ public abstract class Employee {
 		this.productivityScore = productivityScore;
 	}
 
-	public double getMonthlyIncome() {
+	public long getMonthlyIncome() {
 		return monthlyIncome;
 	}
 
-	public void setMonthlyIncome(double monthlyIncome) {
+	public void setMonthlyIncome(long monthlyIncome) {
 		this.monthlyIncome = monthlyIncome;
 	}
 
@@ -81,22 +81,22 @@ public abstract class Employee {
 		return rewardSalary;
 	}
 
-	public void setRewardSalary(double rewardSalary) {
+	public void setRewardSalary(long rewardSalary) {
 		this.rewardSalary = rewardSalary;
 	}
 
-	public abstract double calMonthlyIncome();
+	public abstract long calMonthlyIncome();
 
-	public double calReward() {
-		return this.productivityScore * 3000000;
+	public long calReward() {
+		return (long)this.productivityScore * 3000000;
 	}
 
 	@Override
 	public String toString() {
             SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		NumberFormat formatter = new DecimalFormat("#0.00");
+		NumberFormat formatter = new DecimalFormat("#0.0");
 		return "Employee ID: " + empId + ", Role: " + role + ", Account: " + account + ", Work Starting Date: "
 				+ df.format(workStartingDate) + ", Productivity Score: " + productivityScore + ", Monthly Income: " + formatter.format(monthlyIncome)
-				+ ", Reward Salary: " + formatter.format(rewardSalary);
+				+ ", Reward Salary:" + formatter.format(rewardSalary);
 	}
 }
