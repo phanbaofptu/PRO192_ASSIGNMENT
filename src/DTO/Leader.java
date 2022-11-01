@@ -1,76 +1,71 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DTO;
 
+
+
+import DTO.Employee;
 import java.util.Date;
-import java.text.SimpleDateFormat;
-import static java.util.Calendar.DATE;
-import tool.DateDif;
 
-/**
- *
- * @author phangiabao
- */
-public class Leader extends Employee{
-    int reviewTaskNumber;
-    int supportTaskNumber;
-    double allowance;
+public class Leader extends Employee {
 
-    public Leader(String empId, String account, Date workStartingDate, double productivityScore, double monthlyIncome, double rewardSalary) {
-        super(empId, account, "LEADER", workStartingDate, productivityScore);
-        this.reviewTaskNumber = reviewTaskNumber;
-        this.supportTaskNumber = supportTaskNumber;
-    }
+	private int reviewTaskNumber;
+	private int supportTaskNumber;
+	private double allowance;
 
-    public int getReviewTaskNumber() {
-        return reviewTaskNumber;
-    }
+	@Override
+	public double calMonthlyIncome() {
+		return (this.reviewTaskNumber * 4000000) + (this.supportTaskNumber * 400000) + this.getRewardSalary()
+				+ this.getAllowance();
+	}
 
-    public void setReviewTaskNumber(int reviewTaskNumber) {
-        this.reviewTaskNumber = reviewTaskNumber;
-    }
+	public double calAllowance() {
 
-    public int getSupportTaskNumber() {
-        return supportTaskNumber;
-    }
+		Date currentDate = new Date();
+		int numberMonthWork = (int) ((currentDate.getTime() - this.getWorkStartingDate().getTime()) / 3600);
+		if (numberMonthWork >= 36) {
+			return this.getProductivityScore() * 2000000;
+		} else {
+			return this.getProductivityScore() * 1200000;
+		}
+	}
+	
+	public Leader() {
+		super();
+	}
 
-    public void setSupportTaskNumber(int supportTaskNumber) {
-        this.supportTaskNumber = supportTaskNumber;
-    }
+	public Leader(String empId,int role, String account, Date workStartingDate, double productivityScore, int reviewTaskNumber, int supportTaskNumber) {
+		super(empId, role, account, workStartingDate, productivityScore);
+		this.reviewTaskNumber = reviewTaskNumber;
+		this.supportTaskNumber = supportTaskNumber;
+	}
 
-    public double getAllowance() {
-        return allowance;
-    }
+	public int getReviewTaskNumber() {
+		return reviewTaskNumber;
+	}
 
-    public void setAllowance(double allowance) {
-        this.allowance = allowance;
-    }
+	public void setReviewTaskNumber(int reviewTaskNumber) {
+		this.reviewTaskNumber = reviewTaskNumber;
+	}
 
+	public int getSupportTaskNumber() {
+		return supportTaskNumber;
+	}
 
-    
+	public void setSupportTaskNumber(int supportTaskNumber) {
+		this.supportTaskNumber = supportTaskNumber;
+	}
 
-    @Override
-    public double calMonthlyIncome() {
-calReward();
-        calAllowance();
-        setMonthlyIncome((double)(reviewTaskNumber * 4000000) + (double)(supportTaskNumber* 400000) + getRewardSalary() + getAllowance());
-        return getMonthlyIncome();    }
+	public double getAllowance() {
+		return allowance;
+	}
 
-    @Override
-    public double calAllowance() {
- if(DateDif.getMonthDiff(getWorkStartingDate(), new Date()) >= 36)
-            this.allowance = (long)(2000000 * getProductivityScore());
-        else this.allowance = (long) (1200000 * getProductivityScore());
-        return this.allowance;    }
+	public void setAllowance(double allowance) {
+		this.allowance = allowance;
+	}
 
-    @Override
-    public String toString() {
-return getRole() + "," + getEmpId() + "," + getAccount() + "," + new SimpleDateFormat("dd/MM/yyyy").format(getWorkStartingDate()) + "," + 
-				getProductivityScore() + "," + getReviewTaskNumber() + "," + getSupportTaskNumber() +", "+ getMonthlyIncome() +", "+this.allowance;    }
+	@Override
+	public String toString() {
+		return "Leader ["+ super.toString()+",reviewTaskNumber=" + reviewTaskNumber + ", Support Task Number: " + supportTaskNumber
+				+ ", Allowance= " + allowance + "]\n"  ;
+	}
 
-
-    
-    
 }

@@ -1,111 +1,102 @@
 package DTO;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
-
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- *
- * @author phangiabao
- */
 public abstract class Employee {
 
-    String empId;
-    String account;
-    String role;
-    Date workStartingDate;
-    double productivityScore;
-    double monthlyIncome;
-    double rewardSalary;
+	private String empId;
+	private int role;
+	private String account;
+	private Date workStartingDate;
+	private double productivityScore;
+	private double monthlyIncome;
+	private double rewardSalary;
 
-    public Employee(String empId, String account, String role, Date workStartingDate, double productivityScore) {
-        this.empId = empId;
-        this.account = account;
-        this.role = role;
-        this.workStartingDate = workStartingDate;
-        this.productivityScore = productivityScore;
-        this.monthlyIncome = monthlyIncome;
-        this.rewardSalary = rewardSalary;
-    }
+	public Employee() {
+		super();
+	}
 
-    public String getEmpId() {
-        return empId;
-    }
+	public Employee(String empId, int role, String account, Date workStartingDate, double productivityScore) {
+		super();
+		this.empId = empId;
+		this.role = role;
+		this.account = account;
+		this.workStartingDate = workStartingDate;
+		this.productivityScore = productivityScore;
+	}
 
-    public void setEmpId(String empId) {
-        this.empId = empId;
-    }
+	public String getEmpId() {
+		return empId;
+	}
 
-    public String getAccount() {
-        return account;
-    }
+	public void setEmpId(String empId) {
+		this.empId = empId;
+	}
 
-    public void setAccount(String account) {
-        account = account.trim().toUpperCase();
-        if (account.length() > 0) {
-            this.account = account;
-        }
-    }
+	public int getRole() {
+		return role;
+	}
 
-    public String getRole() {
-        return role;
-    }
+	public void setRole(int role) {
+		this.role = role;
+	}
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+	public String getAccount() {
+		return account;
+	}
 
-    public Date getWorkStartingDate() {
-        return workStartingDate;
-    }
+	public void setAccount(String account) {
+		this.account = account;
+	}
 
-    public void setWorkStartingDate(Date workStartingDate) {
-        this.workStartingDate = workStartingDate;
-    }
+	public Date getWorkStartingDate() {
+		return workStartingDate;
+	}
 
-    public double getProductivityScore() {
-        return productivityScore;
-    }
+	public void setWorkStartingDate(Date workStartingDate) {
+		this.workStartingDate = workStartingDate;
+	}
 
-    public void setProductivityScore(double productivityScore) {
-        if (productivityScore >= 0.8 && productivityScore <= 1.2) {
-            this.productivityScore = productivityScore;
-        }
-    }
+	public double getProductivityScore() {
+		return productivityScore;
+	}
 
-    public double getMonthlyIncome() {
-        return monthlyIncome;
-    }
+	public void setProductivityScore(double productivityScore) {
+		this.productivityScore = productivityScore;
+	}
 
-    public void setMonthlyIncome(double monthlyIncome) {
-        this.monthlyIncome = monthlyIncome;
-    }
+	public double getMonthlyIncome() {
+		return monthlyIncome;
+	}
 
-    public double getRewardSalary() {
-        return rewardSalary;
-    }
+	public void setMonthlyIncome(double monthlyIncome) {
+		this.monthlyIncome = monthlyIncome;
+	}
 
-    public void setRewardSalary(double rewardSalary) {
-        this.rewardSalary = rewardSalary;
-    }
+	public double getRewardSalary() {
+		return rewardSalary;
+	}
 
-    public abstract double calMonthlyIncome();
+	public void setRewardSalary(double rewardSalary) {
+		this.rewardSalary = rewardSalary;
+	}
 
-    public double calReward() {
-        return productivityScore * 3000000;
+	public abstract double calMonthlyIncome();
 
-    }
-    public abstract double calAllowance();
+	public double calReward() {
+		return this.productivityScore * 3000000;
+	}
 
-    @Override
-    public String toString() {
-        return "Employee{" + "empId=" + empId + ", account=" + account + ", role=" + role + ", workStartingDate=" + workStartingDate + ", productivityScore=" + productivityScore + ", monthlyIncome=" + monthlyIncome + ", rewardSalary=" + rewardSalary + '}';
-    }
-    
-    
-
+	@Override
+	public String toString() {
+            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		NumberFormat formatter = new DecimalFormat("#0.00");
+		return "Employee ID: " + empId + ", Role: " + role + ", Account: " + account + ", Work Starting Date: "
+				+ df.format(workStartingDate) + ", Productivity Score: " + productivityScore + ", Monthly Income: " + formatter.format(monthlyIncome)
+				+ ", Reward Salary: " + formatter.format(rewardSalary);
+	}
 }
